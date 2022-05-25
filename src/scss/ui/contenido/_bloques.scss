@@ -1,0 +1,54 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+.bloques {
+    &__grid {
+        @include m.tablet { 
+            @include m.grid(2, 0);
+            grid-auto-flow: dense;
+    
+        }
+    }
+}
+
+.bloque {
+    height: 40rem;
+    text-align: center;
+    @include m.flexCol;
+    justify-content: center;
+    &:nth-child(1){
+        background-color: v.$primario ;
+
+    }
+    &:nth-child(2){
+        @include m.bgImage('../img/bloque_1.jpg');
+    }
+    &:nth-child(3){
+        background-color: v.$secundario ;
+        grid-column: 2 / 3;
+    }
+    &:nth-child(4){  
+        @include m.bgImage('../img/bloque_2.jpg');
+    }
+    &__contenido {
+      color: v.$blanco; 
+      max-width: 80%;
+      border-block: 1px solid v.$blanco;
+      padding: 1rem 0;
+      @include m.telefono { 
+        max-width: 60%;
+      }
+      @include m.desktop { 
+            max-width: 40rem;
+      }
+      @include m.desktop { 
+        max-width: 40rem;
+  }
+    }
+    &__heading {
+        text-transform: uppercase;
+    }
+    &__texto {
+        font-size: 2rem;
+    }
+}

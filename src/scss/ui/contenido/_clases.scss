@@ -1,0 +1,59 @@
+@use "../../base/variables" as v;
+@use "../../base/mixins" as m;
+
+.clases {
+    background-color: v.$gris;
+    padding: 5rem 0;
+    &__heading {
+        @include m.heading;
+    }
+
+    &__grid {
+        @include m.tablet { 
+              @include m.grid(2, 3rem);
+        }
+        @include m.desktop {
+            @include m.grid(3, 2rem);
+        }
+    }
+
+}
+
+.clase {
+    border: 1px solid darken(v.$gris, 10%);
+    margin-bottom: 3rem;
+    background-color: v.$blanco;
+    &__meta {
+        padding: 1rem;
+        background-color: v.$primario;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__nombre {
+        min-height: 5.5rem;
+    }
+    &__fecha {
+        margin: 0;
+        color: v.$blanco;
+    }
+    &__precio {
+        background-color: v.$secundario;
+        padding: .5rem;
+        border-radius: 2rem;
+        font-weight: 700;
+        margin: 0;
+        font-size: 1.2rem;
+
+    }
+    &__contenido {
+        padding: 2rem;
+    }
+    &__descripcion {
+        color: v.$primario;
+    }
+    &__enlace {
+        @include m.boton(v.$primario, v.$blanco);
+        display: block;
+    }
+}
